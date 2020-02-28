@@ -39,12 +39,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void updateProductById(Long id, ProductDTO productDTO) {
+        LOG.info("Update product for the given id: {}", id);
         Product updatedProduct = productDTO2EntityMapper.map(productDTO, getProductIfPresent(id));
         productRepository.save(updatedProduct);
     }
 
     @Override
     public void deleteProductById(Long id) {
+        LOG.info("Delete product for the given id: {}", id);
         productRepository.delete(getProductIfPresent(id));
     }
 
@@ -54,6 +56,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     private Product getProductIfPresent(Long id) {
-        return productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("product not found"));
+        return productRepository.findById(id).orElseThrow(() -> {
+            LOG.error("Product not found for the given id: {}", id);
+            return new ProductNotFoundException("product not found");
+        });
     }
 }
