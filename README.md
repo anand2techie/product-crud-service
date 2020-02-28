@@ -10,8 +10,8 @@ mvn spring-boot:run
 
 # Security
 Please enter following credentials to access API
-Username: test
-Paassword: password
+* Username: test
+* Paassword: password
 
 # Hosted in Heroku
 * Also hosted in Heroku server: http://product-crud-service.herokuapp.com/swagger-ui.html
