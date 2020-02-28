@@ -5,16 +5,16 @@ Product service, developed in Java 8 and latest version of Spring Boot (2.2.1.RE
 mvn spring-boot:run
 
 # To Run with Docker
-Build Docker image with Maven => ./mvnw com.google.cloud.tools:jib-maven-plugin:dockerBuild -Dimage=springboot/product-service-docker
-Run as Docker image => docker run -p 8080:8080 -t springboot/product-service-docker
+* Build Docker image with Maven => ./mvnw com.google.cloud.tools:jib-maven-plugin:dockerBuild -Dimage=springboot/product-service-docker
+* Run as Docker image => docker run -p 8080:8080 -t springboot/product-service-docker
 
-#Security
+# Security
 Please enter following credentials to access API
-Username: test
-Paassword: password
+* Username: test
+* Paassword: password
 
-#Hosted in Heroku
-Also hosted in Heroku server: http://product-crud-service.herokuapp.com/swagger-ui.html
+# Hosted in Heroku
+* Also hosted in Heroku server: http://product-crud-service.herokuapp.com/swagger-ui.html
 
 # Project Design
 * Adopted clean & test-driven design for developing REST APIs for CRUD operations on products.
