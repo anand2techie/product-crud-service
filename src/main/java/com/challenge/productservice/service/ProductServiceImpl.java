@@ -8,6 +8,7 @@ import com.challenge.productservice.model.ProductDTO;
 import com.challenge.productservice.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,7 +53,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDTO> listProducts(Integer page, Integer pageSize, Map<String, String> viewParams) {
-        return productEntity2DTOMapper.from(productRepository.findAll());
+        return productEntity2DTOMapper.from(productRepository.findAll(PageRequest.of(page, pageSize)).getContent());
     }
 
     private Product getProductIfPresent(Long id) {
